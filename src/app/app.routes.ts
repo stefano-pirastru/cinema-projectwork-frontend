@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './features/auth/login/login.component';
-import { authGuard } from './core/guards/auth.guard'; // Usare solo quando dovremo protegegre delle route
+import { authGuard } from './core/guards/auth.guard'; // Usare solo quando dovremo proteggere delle route
 
 export const routes: Routes = [
 
