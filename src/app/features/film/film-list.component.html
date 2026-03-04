@@ -1,0 +1,38 @@
+<section class="films-section">
+    <h1>In Sala....</h1>
+    <!-- <div class="films-grid">
+        <div class="film-card">
+            <h3>{{film.title}}</h3>
+        </div>
+    </div> -->
+    <table border="1">
+
+        <tr>
+            <th>ID</th>
+            <th>Titolo</th>
+            <th>Durata</th>
+            <th>Rating</th>
+            <th>Azioni</th>
+        </tr>
+
+        <tbody>
+            @for(film of films ;track film.id){
+            <tr>
+
+                <td>{{film.id}}</td>
+                <td>{{film.title}}</td>
+                <td>{{film.durationMinutes}}</td>
+                <td>{{film.ageRating}}</td>
+                <td>
+                    <!-- <button (click)="deleteFilm(film.id!)">
+Elimina
+</button> -->
+                </td>
+
+            </tr>
+            }
+        </tbody>
+
+
+    </table>
+</section>

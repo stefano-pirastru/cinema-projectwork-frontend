@@ -5,14 +5,16 @@ import { HomepageComponent } from './features/homepage/homepage';
 
 export const routes: Routes = [
 
-  { path: 'homepage', component: HomepageComponent},
+  { path: 'homepage', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
+  // { path: 'login', component: LoginComponent },
+  // {path}
 
   // esempio di rotta protetta
   // {
-    //path: '',
-    //canActivate: [authGuard],
-// loadComponent: () =>
+  //path: '',
+  //canActivate: [authGuard],
+  // loadComponent: () =>
   //    import('./home/home.component').then(m => m.HomeComponent)
- // }
+  // }
 ];
