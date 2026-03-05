@@ -1,0 +1,24 @@
+.homepage-container {
+  padding: 20px;
+}
+
+.films-section {
+  margin-top: 30px;
+}
+
+.management-section {
+  margin-top: 40px;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  background-color: #c62828;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #b71c1c;
+}

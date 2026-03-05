@@ -1,17 +1,13 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+export interface Booking {
+  id?: number;
+  userId: number;
+  screeningId: number;
+  totalPrice: number;
+  bookingDate?: string;
+}
 
-@Component({
-  selector: 'app-bookings',
-  imports: [],
-  templateUrl: './bookings.html',
-  styleUrl: './bookings.css',
-})
-export class Bookings {
-
-  private apiUrl = 'http://localhost:8080/api/bookings';
-
-  constructor(private http: HttpClient) { }
-
-
+export interface BookingRequest {
+  userId: number;
+  screeningId: number;
+  totalPrice: number;
 }

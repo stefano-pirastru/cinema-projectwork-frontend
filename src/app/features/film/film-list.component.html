@@ -1,38 +1,28 @@
-<section class="films-section">
+<div class="container">
     <h1>In Sala....</h1>
-    <!-- <div class="films-grid">
-        <div class="film-card">
-            <h3>{{film.title}}</h3>
+
+    <!-- Loading state -->
+    <div *ngIf="loading" class="loading" style="text-align:center; padding:2rem;">
+        Loading films, please wait...
+    </div>
+
+    <!-- No films message -->
+    <div *ngIf="!loading" style="text-align: center; padding: 2rem;">
+        No films found. Please check your backend connection.
+    </div>
+
+    <!-- Film Grid -->
+    <div class="film-grid" *ngIf="!loading">
+        <div class="film-card" *ngFor="let film of films; trackBy: trackByFilmId">
+            <img class="film-img"
+                src="https://www.movieconnection.it/wp-content/uploads/2026/03/miroirs-no-3-poster-560x800.jpg"
+                [alt]="film.title">
+            <h2>{{ film.title }}</h2>
+            <p><strong>Duration:</strong> {{ film.durationMinutes }} mins</p>
+            <p><strong>Rating:</strong> {{ film.ageRating }}+</p>
+            <button [routerLink]="['/films', film.id]" class="btn">
+                View Details & Book
+            </button>
         </div>
-    </div> -->
-    <table border="1">
-
-        <tr>
-            <th>ID</th>
-            <th>Titolo</th>
-            <th>Durata</th>
-            <th>Rating</th>
-            <th>Azioni</th>
-        </tr>
-
-        <tbody>
-            @for(film of films ;track film.id){
-            <tr>
-
-                <td>{{film.id}}</td>
-                <td>{{film.title}}</td>
-                <td>{{film.durationMinutes}}</td>
-                <td>{{film.ageRating}}</td>
-                <td>
-                    <!-- <button (click)="deleteFilm(film.id!)">
-Elimina
-</button> -->
-                </td>
-
-            </tr>
-            }
-        </tbody>
-
-
-    </table>
-</section>
+    </div>
+</div>

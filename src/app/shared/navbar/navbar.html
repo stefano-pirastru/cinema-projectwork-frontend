@@ -1,22 +1,21 @@
 <nav class="navbar">
-  <div class="nav-left">
-    <a class="logo" routerLink="/">
-      <img class="logo-img" src="logoCinema.png" alt="Cinedoro Logo" />
-      <span class="brand">Cinedoro</span>
-    </a>
+    <div class="navbar-container">
 
-    <a routerLink="/films">Film</a>
-    <a routerLink="/screenings">Proiezioni</a>
-    <a routerLink="/services">Servizi</a>
-  </div>
+        <div class="logo">
+            🎬 CineDoro
+        </div>
 
-  <div class="nav-right">
-    @if (!authService.isLoggedIn()) {
-      <a routerLink="/login">Login</a>
-      <a routerLink="/register">Registrati</a>
-    } @else {
-      <a routerLink="/profile">Profilo</a>
-      <button type="button" (click)="logout()">Logout</button>
-    }
-  </div>
+        <ul class="nav-links">
+            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+            <li><a routerLink="/proiezioni" routerLinkActive="active">Proiezioni</a></li>
+            <li><a routerLink="/servizi" routerLinkActive="active">Servizi</a></li>
+            <li><a routerLink="/profile" routerLinkActive="active">Profilo</a></li>
+            <li><a routerLink="/carrello" routerLinkActive="active">Carrello</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="logout-btn">Logout</button>
+        </div>
+
+    </div>
 </nav>
