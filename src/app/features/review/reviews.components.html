@@ -1,0 +1,25 @@
+<h2>Recensioni</h2>
+
+<div *ngFor="let review of reviews">
+
+  <p>⭐ {{review.rating}}</p>
+
+  <p>{{review.comment}}</p>
+
+</div>
+
+<h3>Lascia una recensione</h3>
+
+<input
+  type="number"
+  min="1"
+  max="5"
+  [(ngModel)]="newReview.rating"
+>
+
+<textarea
+  [(ngModel)]="newReview.comment"
+  placeholder="Scrivi la tua recensione">
+</textarea>
+
+<button (click)="submitReview()">Invia recensione</button>

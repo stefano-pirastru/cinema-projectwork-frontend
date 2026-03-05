@@ -3,6 +3,7 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { authGuard } from './core/guards/auth.guard'; // Usare solo quando dovremo proteggere delle route
 import { HomepageComponent } from './features/homepage/homepage';
 
+
 export const routes: Routes = [
 
   { path: 'homepage', component: HomepageComponent },
