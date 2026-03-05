@@ -1,7 +1,25 @@
 <h2>Login</h2>
 
-<input [(ngModel)]="email" placeholder="Email">
-<br><br>
-<input [(ngModel)]="password" type="password" placeholder="Password">
-<br><br>
-<button (click)="login()">Login</button>
+<form (ngSubmit)="login()">
+  <input
+    type="email"
+    name="email"
+    [(ngModel)]="email"
+    placeholder="Email"
+    autocomplete="email"
+    required
+  />
+  <br />
+  <br />
+  <input
+    type="password"
+    name="password"
+    [(ngModel)]="password"
+    placeholder="Password"
+    autocomplete="current-password"
+    required
+  />
+  <br />
+  <br />
+  <button type="submit">Login</button>
+</form>

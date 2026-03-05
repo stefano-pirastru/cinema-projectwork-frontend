@@ -1,20 +1,20 @@
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Film } from "./film.model";
-import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Film } from './film.model';
+
 @Injectable({
-    providedIn: 'root'   // 👈 THIS IS IMPORTANT
+  providedIn: 'root'
 })
 export class FilmService {
-    private apiUrl = 'http://localhost:8080/api/film';
-    constructor(private http: HttpClient) { }
+  private readonly http = inject(HttpClient);
+  private readonly apiUrl = 'http://localhost:8080/api/film';
 
-    getAllFilm(): Observable<Film[]> {
-        return this.http.get<Film[]>(this.apiUrl);
-    }
+  getAllFilm(): Observable<Film[]> {
+    return this.http.get<Film[]>(this.apiUrl);
+  }
 
-    getFilmById(id: number): Observable<Film[]> {
-        return this.http.get<Film[]>(`${this.apiUrl}/${id}`);
-    }
-
+  getFilmById(id: number): Observable<Film> {
+    return this.http.get<Film>(`${this.apiUrl}/${id}`);
+  }
 }

@@ -1,0 +1,73 @@
+<div class="planner">
+  <h1>Gestione Proiezioni</h1>
+
+  <div class="controls">
+    <label for="screeningDate">Data:</label>
+    <input id="screeningDate" type="date" [(ngModel)]="selectedDate" (change)="loadScreenings()" />
+  </div>
+
+  <section class="section">
+    <h2>Film in sala per {{ formatDateDisplay(selectedDate) }}</h2>
+
+    @let filmsForDate = getFilmsForSelectedDate();
+    @if (filmsForDate.length > 0) {
+      <ul>
+        @for (film of filmsForDate; track film.id) {
+          <li>{{ film.title }} ({{ film.durationMinutes }} min)</li>
+        }
+      </ul>
+    } @else {
+      <p class="muted">Nessun film in sala in questa data.</p>
+    }
+  </section>
+
+  @if (isAdmin) {
+    <section class="section">
+      <h2>Nuova Proiezione</h2>
+      <div class="row">
+        <select [(ngModel)]="newScreening.filmId">
+          <option [ngValue]="0">Seleziona film</option>
+          @for (film of films; track film.id) {
+            <option [ngValue]="film.id">{{ film.title }}</option>
+          }
+        </select>
+
+        <select [(ngModel)]="newScreening.hallId">
+          <option [ngValue]="0">Seleziona sala</option>
+          @for (hall of halls; track hall.id) {
+            <option [ngValue]="hall.id">{{ hall.name }}</option>
+          }
+        </select>
+
+        <input type="time" [(ngModel)]="newScreening.screeningTime" />
+        <button (click)="createScreening()">Aggiungi</button>
+      </div>
+    </section>
+  } @else {
+    <p class="muted">Solo gli admin possono creare o eliminare proiezioni.</p>
+  }
+
+  @if (errorMessage) {
+    <div class="error">{{ errorMessage }}</div>
+  }
+
+  @for (hall of halls; track hall.id) {
+    <section class="section">
+      <h2 class="hall-title">{{ hall.name }} ({{ hall.capacity }} posti)</h2>
+
+      @for (screening of getScreeningsForHall(hall.id); track screening.id) {
+        <div class="row">
+          {{ formatTimeDisplay(screening.screeningTime) }} -
+          @let film = getFilm(screening.filmId);
+          {{ film?.title }} ({{ film?.durationMinutes }} min)
+
+          @if (isAdmin) {
+            <button (click)="deleteScreening(screening.id!)">Elimina</button>
+          }
+        </div>
+      } @empty {
+        <p class="muted">Nessuna proiezione per questa sala.</p>
+      }
+    </section>
+  }
+</div>

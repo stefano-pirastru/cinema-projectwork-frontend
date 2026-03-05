@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -11,20 +11,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
+  private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
 
   email = '';
   password = '';
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
-
-  login() {
-    this.authService.login(this.email, this.password)
-      .subscribe({
-        next: () => this.router.navigate(['/']),
-        error: () => alert('Login fallito')
-      });
+  login(): void {
+    this.authService.login(this.email, this.password).subscribe({
+      next: () => this.router.navigate(['/']),
+      error: () => alert('Login fallito')
+    });
   }
 }

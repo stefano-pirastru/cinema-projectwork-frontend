@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../core/services/auth.service';
-import { FilmListComponent } from '../film/film-list.component';
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [CommonModule, RouterModule, FilmListComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './homepage.html',
   styleUrls: ['./homepage.css']
 })
