@@ -20,6 +20,10 @@ export class AuthService {
     }).pipe(
       tap(response => {
         localStorage.setItem('token', response.token);
+        localStorage.setItem('email', response.email);
+        localStorage.setItem('firstName', response.firstName);
+        localStorage.setItem('userId', response.id);
+        localStorage.setItem('role', response.role);
       })
     );
   }
