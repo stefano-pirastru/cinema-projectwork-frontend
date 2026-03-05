@@ -1,8 +1,21 @@
-<nav class = "navbar">
-    <a routerLink = "/homepage">HomePage</a>
-    <a>Proiezioni</a>
-    <a>Servizi</a>
-    <a routerLink="/profile">Profilo</a>
-    <a>Carrello</a>
-    <!-- <button (click) = "logout()">Logout</button> -->
+<nav class="navbar">
+    <div class="navbar-container">
+
+        <div class="logo">
+            🎬 CineDoro
+        </div>
+
+        <ul class="nav-links">
+            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+            <li><a routerLink="/proiezioni" routerLinkActive="active">Proiezioni</a></li>
+            <li><a routerLink="/servizi" routerLinkActive="active">Servizi</a></li>
+            <li><a routerLink="/profile" routerLinkActive="active">Profilo</a></li>
+            <li><a routerLink="/carrello" routerLinkActive="active">Carrello</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="logout-btn">Logout</button>
+        </div>
+
+    </div>
 </nav>

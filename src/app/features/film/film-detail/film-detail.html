@@ -1,0 +1,40 @@
+<div class="detail-container" *ngIf="film">
+    <div class="poster-section">
+        <img src="https://www.movieconnection.it/wp-content/uploads/2026/03/miroirs-no-3-poster-560x800.jpg"
+            [alt]="film.title">
+    </div>
+
+    <div class="info-section">
+        <h1 class="film-title">{{ film.title }}</h1>
+
+        <div class="meta-tags">
+            <span class="tag">{{ film.ageRating }}+</span>
+            <span class="tag">{{ film.durationMinutes }} mins</span>
+            <span class="tag">{{ film.releaseDate }}</span>
+        </div>
+
+        <p class="description">{{ film.description }}</p>
+
+        <div class="screenings-section">
+            <h3>Available Screenings</h3>
+
+            <div class="alert" *ngIf="bookingMessage" [class.success]="bookingMessage.includes('successful')">
+                {{ bookingMessage }}
+            </div>
+
+            <div class="screenings-grid">
+                <div class="screening-card" *ngFor="let screening of screenings; trackBy: trackByScreeningId">
+                    <div class="screening-info">
+                        <span class="date">{{ screening.screeningDate }}</span>
+                        <span class="time">{{ screening.screeningTime }}</span>
+                    </div>
+                    <button class="book-btn" (click)="bookTicket(screening)">
+                        Book
+                    </button>
+                </div>
+            </div>
+
+            <p class="no-data" *ngIf="screenings.length === 0">No screenings available.</p>
+        </div>
+    </div>
+</div>

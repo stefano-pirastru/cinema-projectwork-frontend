@@ -1,0 +1,128 @@
+.detail-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.poster-section img {
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.info-section {
+  flex: 1;
+}
+
+.film-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.tag {
+  background: #f0f0f0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+.screenings-section h3 {
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.screenings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.screening-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  background: white;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.screening-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.screening-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: #888;
+}
+.time {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #222;
+}
+.price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e50914;
+  margin-top: 4px;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 8px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.book-btn:hover {
+  background: #b20710;
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.no-data {
+  color: #888;
+  font-style: italic;
+}

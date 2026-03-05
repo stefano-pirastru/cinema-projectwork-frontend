@@ -1,11 +1,29 @@
-<h1>Benvenuto al Cinedoro</h1>
-<hr>
-<h3>Gestione cinema</h3>
-<!-- tag routerlink ci permette di navigare sulle pagine-->
-<button routerLink="/film">Gestione film</button>
-<br>
-<br>
-<button routerLink="/screening">Gestione proiezioni</button>
-<br>
-<br>
-<button routerLink="/ticket">Gestione prezzi biglietto</button>
+<div class="homepage-container">
+
+    <h1>Benvenuto al Cinedoro</h1>
+
+    <!-- Film currently showing -->
+    <section class="films-section">
+        <app-film-list></app-film-list>
+    </section>
+
+    <!-- Management buttons -->
+    <section class="management-section">
+
+        <h3>Gestione cinema</h3>
+
+        <div class="dashboard-actions">
+            <button routerLink="/films" class="btn">
+                Gestione film
+            </button>
+            <button routerLink="/screening" class="btn">
+                Gestione proiezioni
+            </button>
+            <button routerLink="/ticket" class="btn">
+                Gestione prezzi biglietto
+            </button>
+        </div>
+
+    </section>
+
+</div>
