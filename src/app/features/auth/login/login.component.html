@@ -1,7 +1,46 @@
-<h2>Login</h2>
+<section class="card">
 
-<input [(ngModel)]="email" placeholder="Email">
-<br><br>
-<input [(ngModel)]="password" type="password" placeholder="Password">
-<br><br>
-<button (click)="login()">Login</button>
+  <h2>Login</h2>
+
+  <form #f="ngForm" (ngSubmit)="login()">
+
+    <div class="row">
+      <label>Email</label>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+        email
+        placeholder="Inserisci la tua email"
+      />
+    </div>
+
+    <div class="row">
+      <label>Password</label>
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        minlength="6"
+        placeholder="Inserisci la password"
+      />
+    </div>
+
+    <p class="error" *ngIf="errorMsg">
+      {{ errorMsg }}
+    </p>
+
+    <button type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Login...' : 'Accedi' }}
+    </button>
+
+    <p class="muted">
+      Non hai un account?
+      <a routerLink="/register">Registrati</a>
+    </p>
+
+  </form>
+
+</section>

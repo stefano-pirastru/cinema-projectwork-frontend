@@ -1,0 +1,10 @@
+.header {
+  background: #111;
+  border-bottom: 1px solid #333;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

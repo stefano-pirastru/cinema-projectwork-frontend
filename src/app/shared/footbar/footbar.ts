@@ -6,9 +6,10 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footbar',
+  standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './footbar.html',
-  styleUrl: './footbar.css',
+  styleUrls: ['./footbar.css'],
 })
 export class Footbar {
 

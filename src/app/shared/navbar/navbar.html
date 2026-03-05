@@ -1,8 +1,22 @@
-<nav class = "navbar">
-    <a routerLink = "/homepage">HomePage</a>
-    <a>Profilo</a>
-    <a>Carrello</a>
-    <a>Proiezioni</a>
-    <a>Servizi</a>
-    <!-- <button (click) = "logout()">Logout</button> -->
+<nav class="navbar">
+  <div class="nav-left">
+    <a class="logo" routerLink="/">
+      <img class="logo-img" src="logoCinema.png" alt="Cinedoro Logo" />
+      <span class="brand">Cinedoro</span>
+    </a>
+
+    <a routerLink="/films">Film</a>
+    <a routerLink="/screenings">Proiezioni</a>
+    <a routerLink="/services">Servizi</a>
+  </div>
+
+  <div class="nav-right">
+    @if (!authService.isLoggedIn()) {
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Registrati</a>
+    } @else {
+      <a routerLink="/profile">Profilo</a>
+      <button type="button" (click)="logout()">Logout</button>
+    }
+  </div>
 </nav>
