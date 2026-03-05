@@ -1,0 +1,17 @@
+<div *ngIf="logged; else notLogged">
+
+  <h2>Profilo Utente</h2>
+
+  <p><strong>Nome utente:</strong> {{firstName}}</p>
+  <p><strong>Email:</strong> {{email}}</p>
+
+  <button (click)="logout()">Logout</button>
+
+</div>
+
+
+<ng-template #notLogged>
+
+  <app-auth-choice></app-auth-choice>
+
+</ng-template>
